@@ -1,0 +1,1610 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Khazna · Privacy Policy · سياسة الخصوصية</title>
+    <meta
+      name="description"
+      content="Privacy policy for Khazna, the personal vault for links, notes and checklists. In English and Arabic: no accounts, no server of ours, what stays on your device, and the two requests the app makes."
+    />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#f7f5f7" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#151316" media="(prefers-color-scheme: dark)" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://vette1123.github.io/khazna-privacy/" />
+    <meta property="og:title" content="Khazna · Privacy Policy · سياسة الخصوصية" />
+    <meta
+      property="og:description"
+      content="Khazna has no accounts and no backend of ours. What stays on your device, the two requests that leave it, and how to switch both off. English and Arabic."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://vette1123.github.io/khazna-privacy/" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23151316'/%3E%3Cg transform='translate(6,9.3) scale(0.3125)' fill='%23C79A3E'%3E%3Crect width='64' height='9' rx='4.5'/%3E%3Crect y='17' x='5' width='59' height='9' rx='4.5' fill-opacity='0.62'/%3E%3Crect y='34' x='10' width='32' height='9' rx='4.5' fill-opacity='0.36'/%3E%3C/g%3E%3C/svg%3E"
+    />
+    <style>
+      /* Self-contained on purpose: no web fonts, no third-party scripts, no cookies,
+         no analytics. A privacy page should not be the thing that tracks you. */
+      :root {
+        --bg: #f7f5f7;
+        --surface: #ffffff;
+        --surface-2: #efecf0;
+        --text: #1b171d;
+        --muted: #5d5762;
+        --line: #e0dbe3;
+        --accent: #7a5a16;
+        --accent-soft: #f4ecdc;
+        --good: #3d6b3f;
+        --warn: #8a5a1f;
+        --radius: 14px;
+        --maxw: 820px;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #151316;
+          --surface: #1d1a20;
+          --surface-2: #241f28;
+          --text: #ece7ef;
+          --muted: #a49bab;
+          --line: #302a35;
+          --accent: #c79a3e;
+          --accent-soft: #2a2119;
+          --good: #9ab88f;
+          --warn: #d4a55c;
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+          sans-serif;
+        font-size: 17px;
+        line-height: 1.75;
+        -webkit-font-smoothing: antialiased;
+      }
+      [dir="rtl"] body,
+      [lang="ar"] {
+        font-family: "Tajawal", "Cairo", "Noto Sans Arabic", "Segoe UI Arabic", "Segoe UI", Tahoma,
+          system-ui, -apple-system, Arial, sans-serif;
+      }
+      .wrap {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 0 20px 96px;
+      }
+      .skip {
+        position: absolute;
+        left: -9999px;
+        top: 0;
+        background: var(--surface);
+        color: var(--text);
+        padding: 10px 16px;
+        border-radius: 0 0 var(--radius) 0;
+        z-index: 20;
+      }
+      .skip:focus {
+        left: 0;
+      }
+
+      /* Header */
+      .top {
+        border-bottom: 1px solid var(--line);
+        background: var(--surface);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+      .top-inner {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 12px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        min-height: 60px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+      }
+      .brand svg {
+        display: block;
+      }
+      .switch {
+        display: inline-flex;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 3px;
+        background: var(--surface-2);
+      }
+      .switch button {
+        appearance: none;
+        border: 0;
+        background: transparent;
+        color: var(--muted);
+        font: inherit;
+        font-size: 14px;
+        padding: 6px 14px;
+        border-radius: 999px;
+        cursor: pointer;
+      }
+      .switch button[aria-pressed="true"] {
+        background: var(--surface);
+        color: var(--text);
+        font-weight: 600;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+      }
+      .switch button:focus-visible,
+      a:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
+
+      /* Type */
+      h1 {
+        font-size: clamp(28px, 5vw, 38px);
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+        margin: 40px 0 12px;
+        text-wrap: balance;
+      }
+      h2 {
+        font-size: clamp(20px, 3.4vw, 25px);
+        line-height: 1.3;
+        letter-spacing: -0.01em;
+        margin: 48px 0 12px;
+        padding-top: 8px;
+        text-wrap: balance;
+        scroll-margin-top: 84px;
+      }
+      h3 {
+        font-size: 18px;
+        margin: 28px 0 8px;
+      }
+      p {
+        margin: 0 0 16px;
+      }
+      .lede {
+        font-size: 19px;
+        color: var(--text);
+      }
+      .meta {
+        color: var(--muted);
+        font-size: 15px;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 20px;
+      }
+      a {
+        color: var(--accent);
+        text-underline-offset: 3px;
+      }
+      code {
+        font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+        font-size: 0.88em;
+        background: var(--surface-2);
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        padding: 1px 5px;
+        white-space: nowrap;
+      }
+      ul,
+      ol {
+        margin: 0 0 16px;
+        padding-inline-start: 24px;
+      }
+      li {
+        margin-bottom: 8px;
+      }
+      strong {
+        font-weight: 700;
+      }
+
+      /* Cards */
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 12px;
+        margin: 24px 0 8px;
+      }
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 16px 18px;
+      }
+      .card h2 {
+        font-size: 17px;
+        margin: 0 0 6px;
+        padding: 0;
+        letter-spacing: 0;
+      }
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.6;
+      }
+
+      /* Table of contents */
+      .toc {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 18px 22px;
+        margin: 32px 0;
+      }
+      .toc h2 {
+        font-size: 15px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+        margin: 0 0 10px;
+        padding: 0;
+      }
+      .toc ol {
+        margin: 0;
+        padding-inline-start: 22px;
+        columns: 2;
+        column-gap: 28px;
+      }
+      .toc li {
+        margin-bottom: 4px;
+        break-inside: avoid;
+        font-size: 15px;
+      }
+      @media (max-width: 560px) {
+        .toc ol {
+          columns: 1;
+        }
+      }
+
+      /* Callouts */
+      .note {
+        border-inline-start: 3px solid var(--accent);
+        background: var(--accent-soft);
+        border-radius: 0 var(--radius) var(--radius) 0;
+        padding: 14px 18px;
+        margin: 20px 0;
+      }
+      [dir="rtl"] .note {
+        border-radius: var(--radius) 0 0 var(--radius);
+      }
+      .note p:last-child {
+        margin: 0;
+      }
+
+      /* Tables */
+      .table-scroll {
+        overflow-x: auto;
+        margin: 20px 0;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--surface);
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 15px;
+      }
+      th,
+      td {
+        text-align: start;
+        padding: 11px 14px;
+        border-bottom: 1px solid var(--line);
+        vertical-align: top;
+      }
+      th {
+        font-weight: 600;
+        color: var(--muted);
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        white-space: nowrap;
+      }
+      tr:last-child td {
+        border-bottom: 0;
+      }
+
+      .yes {
+        color: var(--good);
+        font-weight: 600;
+      }
+      .no {
+        color: var(--warn);
+        font-weight: 600;
+      }
+
+      .contact {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 18px 22px;
+        margin: 24px 0;
+      }
+      .contact p:last-child {
+        margin: 0;
+      }
+
+      footer.page {
+        margin-top: 56px;
+        padding-top: 24px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 15px;
+      }
+
+      .lang-hidden {
+        display: none;
+      }
+
+      /* Save as PDF should produce a plain document with URLs spelled out. */
+      @media print {
+        .top,
+        .skip,
+        .toc {
+          display: none;
+        }
+        body {
+          background: #fff;
+          color: #000;
+          font-size: 11pt;
+        }
+        .card,
+        .contact,
+        .table-scroll,
+        .note {
+          border: 1px solid #ccc;
+          background: #fff;
+          break-inside: avoid;
+        }
+        a::after {
+          content: " (" attr(href) ")";
+          font-size: 9pt;
+          color: #444;
+        }
+        h2 {
+          break-after: avoid;
+        }
+      }
+    </style>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "PrivacyPolicy",
+        "name": "Khazna Privacy Policy",
+        "alternateName": "سياسة الخصوصية لتطبيق خزنة",
+        "url": "https://vette1123.github.io/khazna-privacy/",
+        "inLanguage": ["en", "ar"],
+        "dateModified": "2026-08-24",
+        "about": {
+          "@type": "MobileApplication",
+          "name": "Khazna",
+          "alternateName": "خزنة",
+          "applicationCategory": "ProductivityApplication",
+          "operatingSystem": "Android, iOS",
+          "identifier": "com.khazna.vault"
+        },
+        "publisher": {
+          "@type": "Person",
+          "name": "Mohamed Gado",
+          "email": "boogado@yahoo.com"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content / تخطي إلى المحتوى</a>
+    <header class="top">
+      <div class="top-inner">
+        <span class="brand">
+          <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true">
+            <rect width="32" height="32" rx="8" fill="#151316" />
+            <g transform="translate(6,9.3) scale(0.3125)" fill="#C79A3E">
+              <rect width="64" height="9" rx="4.5" />
+              <rect y="17" x="5" width="59" height="9" rx="4.5" fill-opacity="0.62" />
+              <rect y="34" x="10" width="32" height="9" rx="4.5" fill-opacity="0.36" />
+            </g>
+          </svg>
+          Khazna
+        </span>
+        <div class="switch" role="group" aria-label="Language / اللغة">
+          <button type="button" id="btn-en" aria-pressed="true" lang="en">English</button>
+          <button type="button" id="btn-ar" aria-pressed="false" lang="ar">العربية</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrap" id="main">
+      <!-- ================================ ENGLISH ================================ -->
+      <section id="doc-en" lang="en" dir="ltr">
+        <h1>Privacy Policy for Khazna</h1>
+        <p class="lede">
+          Khazna (خزنة) is a personal vault: links you want to come back to, notes you jot down,
+          and checklists you tick off. It has no accounts and no backend of ours. This page
+          explains what it keeps on your device, the two requests that leave it, and how to switch
+          both of them off.
+        </p>
+        <p class="meta">
+          Last updated 24 August 2026 · Covers Khazna <code>0.1.0</code> and later ·
+          <code>com.khazna.vault</code>
+        </p>
+
+        <div class="cards">
+          <div class="card">
+            <h2>The short version</h2>
+            <p>
+              Everything you save lives in the app's own storage on your phone. There is no account
+              to create, no server of ours to sync to, and no way for us to read what is in your
+              vault.
+            </p>
+          </div>
+          <div class="card">
+            <h2>Two requests, both optional</h2>
+            <p>
+              The app fetches the title of a link you already saved, and sends usage measurements
+              that contain no vault content. Each is a switch in Settings.
+            </p>
+          </div>
+          <div class="card">
+            <h2>What you write is never sent</h2>
+            <p>
+              Titles, notes, URLs, checklist items and search text never appear in a measurement —
+              not truncated, not hashed, not "just the domain".
+            </p>
+          </div>
+          <div class="card">
+            <h2>Uninstalling is the erase button</h2>
+            <p>
+              Removing the app removes the vault with it. There is no copy anywhere else to ask us
+              to delete.
+            </p>
+          </div>
+        </div>
+
+        <nav class="toc" aria-label="Contents">
+          <h2>Contents</h2>
+          <ol>
+            <li><a href="#en-1">Who we are and what this covers</a></li>
+            <li><a href="#en-2">No accounts, no server of ours</a></li>
+            <li><a href="#en-3">What stays on your device</a></li>
+            <li><a href="#en-4">The two requests the app makes</a></li>
+            <li><a href="#en-5">Usage measurement, in detail</a></li>
+            <li><a href="#en-6">Saving things into Khazna</a></li>
+            <li><a href="#en-7">Opening a saved link</a></li>
+            <li><a href="#en-8">Reminders</a></li>
+            <li><a href="#en-9">App lock and screen privacy</a></li>
+            <li><a href="#en-10">Backup and restore</a></li>
+            <li><a href="#en-11">App updates</a></li>
+            <li><a href="#en-12">Permissions</a></li>
+            <li><a href="#en-13">How your data is secured</a></li>
+            <li><a href="#en-14">Retention and deletion</a></li>
+            <li><a href="#en-15">Your rights</a></li>
+            <li><a href="#en-16">Children's privacy</a></li>
+            <li><a href="#en-17">Third-party services</a></li>
+            <li><a href="#en-18">Changes to this policy</a></li>
+            <li><a href="#en-19">Contact</a></li>
+          </ol>
+        </nav>
+
+        <h2 id="en-1">1. Who we are and what this covers</h2>
+        <p>
+          Khazna is built and published by Mohamed Gado, an individual developer, reachable at
+          <a href="mailto:boogado@yahoo.com">boogado@yahoo.com</a>. In the language of data
+          protection law, that person is the data controller for the small amount of information
+          described in section 5. There is no company, no team and no third party with access.
+        </p>
+        <p>
+          This policy covers the Khazna mobile application, identified as
+          <code>com.khazna.vault</code>, on Android and iOS. It does not cover the websites you
+          open from inside it — once you tap a saved link you are on someone else's page, under
+          their policy, and section 7 explains exactly what the app does and does not do at that
+          moment.
+        </p>
+
+        <h2 id="en-2">2. No accounts, no server of ours</h2>
+        <p>
+          There is nothing to sign up for. Khazna has no login, no profile, no cloud, no sync and
+          no API of ours anywhere in the picture. We do not operate a server that your vault
+          touches, which means there is no database of items, no backup of your notes, and nothing
+          for us to hand over, lose, or be compelled to produce.
+        </p>
+        <p>
+          This is a design decision with a cost, and it is worth stating plainly: because there is
+          no server, there is no automatic recovery. If you lose the phone without having exported
+          a backup (section 10), the vault is gone. We consider that the correct trade for a
+          private notebook.
+        </p>
+        <div class="note">
+          <p>
+            Two requests do leave the device, and neither is a server of ours: a page title fetch
+            that goes straight to the site you saved, and an anonymous usage measurement sent to
+            PostHog. Both are described below and both can be switched off.
+          </p>
+        </div>
+
+        <h2 id="en-3">3. What stays on your device</h2>
+        <p>
+          All of it. Khazna stores its data in the app's private storage, which the operating
+          system isolates from other apps. Nothing in this list is uploaded anywhere.
+        </p>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>What</th>
+                <th>Contains</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Your vault</td>
+                <td>
+                  Every item you save: kind, title, URL, note body, checklist entries and their
+                  ticked state, tags, pin and archive flags, the time each was created and last
+                  changed, and whether a link has been opened
+                </td>
+              </tr>
+              <tr>
+                <td>Settings</td>
+                <td>
+                  Theme, language, haptics, sort order, app lock and its auto-lock delay, screen
+                  privacy, and your two network switches
+                </td>
+              </tr>
+              <tr>
+                <td>Lock timing</td>
+                <td>
+                  A single timestamp recording when the app last went to the background, so the
+                  lock knows whether to re-arm. No credentials of any kind are stored
+                </td>
+              </tr>
+              <tr>
+                <td>Scheduled reminders</td>
+                <td>
+                  Held by the operating system's own alarm scheduler, on the device, along with the
+                  text it will display
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          There is no analytics copy of any of this, no crash report that captures screen contents,
+          and no diagnostic log that includes what you wrote.
+        </p>
+
+        <h2 id="en-4">4. The two requests the app makes</h2>
+        <p>
+          Khazna's own code opens exactly two kinds of network connection. Adding a third would
+          require changing this page first, which is a rule the project holds itself to.
+        </p>
+
+        <h3>Request 1 — the title of a link you saved</h3>
+        <p>
+          When you save a link without typing a title, the app can fetch the page's own title so
+          the item is readable later instead of being a bare URL. What that involves, precisely:
+        </p>
+        <ul>
+          <li>
+            It happens only for a link <strong>already saved</strong>, and only while that item is
+            on screen or when you ask for it. Nothing is fetched while you type, and nothing is
+            fetched from your clipboard.
+          </li>
+          <li>
+            The request goes <strong>straight to the site</strong>. It does not pass through any
+            service of ours or anyone else's, and there is no key or account involved. To that
+            website, it looks like a visit — because it is one.
+          </li>
+          <li>
+            It reads the <strong>markup only</strong>: the first 64 KB of the page, from which the
+            title is taken. No images, scripts or stylesheets are downloaded, and no cookies are
+            stored.
+          </li>
+          <li>
+            It is attempted <strong>once per link</strong>. A page with no title is not asked
+            again, and failure is silent — the link simply keeps whatever you typed.
+          </li>
+          <li>
+            Switch: <em>Settings → Links → Fetch page titles</em>. Off means no request is ever
+            made.
+          </li>
+        </ul>
+        <p>
+          One honest consequence: the site you saved sees a request from your IP address at the
+          moment you save or view the item, the same as if you had opened it in a browser. If that
+          matters for a particular link, turn the setting off before saving it.
+        </p>
+
+        <h3>Request 2 — usage measurement</h3>
+        <p>
+          The app sends anonymous product measurements to PostHog, hosted in the European Union, so
+          that decisions about what to build are based on how the app is actually used. Section 5
+          describes exactly what an event may contain — the short version is counts, durations,
+          screen names and yes/no flags, and never a single character of what you wrote.
+        </p>
+        <p>Switch: <em>Settings → Privacy → Usage measurement</em>. Off means nothing is sent.</p>
+
+        <h2 id="en-5">5. Usage measurement, in detail</h2>
+        <p>
+          Most apps promise that analytics are "anonymous" and leave you to take it on faith. Here
+          is the actual mechanism, because it is checkable rather than a promise.
+        </p>
+        <p>
+          Every event the app is allowed to send is declared in one file in the source, together
+          with the exact shape of what it carries. A value in that file may be a number, a true/false
+          flag, or one of a fixed list of words that we chose (a screen name such as
+          <code>feed</code>, an item kind such as <code>link</code>). It may <strong>not</strong> be
+          free text. A title, a URL, a note, a checklist label and a search query are all free text,
+          so none of them can be placed in an event without changing that rule — and an automated
+          test refuses to build the app if the rule is changed.
+        </p>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Sent</th>
+                <th>Never sent</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Which screen was opened, by our name for it</td>
+                <td>The title of any item</td>
+              </tr>
+              <tr>
+                <td>That an item was created, and of which kind</td>
+                <td>Any URL, or any part of one, including the domain</td>
+              </tr>
+              <tr>
+                <td>How many characters it had — the number, not the text</td>
+                <td>The body of a note</td>
+              </tr>
+              <tr>
+                <td>How many results a search returned</td>
+                <td>What you searched for</td>
+              </tr>
+              <tr>
+                <td>How many entries a checklist has and how many are ticked</td>
+                <td>What any checklist entry says</td>
+              </tr>
+              <tr>
+                <td>Whether a title fetch succeeded, and how long it took</td>
+                <td>Which page was fetched</td>
+              </tr>
+              <tr>
+                <td>Whether an unlock succeeded, failed or was cancelled</td>
+                <td>Anything about your fingerprint, face or passcode</td>
+              </tr>
+              <tr>
+                <td>How many items the vault holds, rounded into a band</td>
+                <td>Anything that identifies you personally</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Counts that could grow without limit are rounded into bands before sending, because "this
+          vault holds 1,247 items" is close to a fingerprint while "1000+" answers the same product
+          question and is not.
+        </p>
+        <p>
+          PostHog assigns a random identifier to the installation so that a sequence of events can
+          be recognised as one session. It is not derived from your device id, your phone number or
+          any account, it is not shared with anyone, and reinstalling the app produces a new one.
+          Session replay and autocapture — the PostHog features that record the screen and the text
+          of whatever is tapped — are permanently disabled in the code and are not offered as a
+          setting.
+        </p>
+        <p>
+          The legal basis, where the GDPR applies, is legitimate interest in understanding how the
+          app is used, and the measurement is on by default. If you would rather not take part, one
+          switch in Settings ends it.
+        </p>
+
+        <h2 id="en-6">6. Saving things into Khazna</h2>
+        <p>There are four ways in, and none of them watches you.</p>
+        <ul>
+          <li>
+            <strong>The share sheet.</strong> Khazna accepts shared text and web links from other
+            apps. It deliberately does not accept images or files, so nothing from your photo
+            library or storage can arrive. The app receives what you shared, at the moment you
+            shared it, and nothing else.
+          </li>
+          <li>
+            <strong>Pasting.</strong> When you open the capture sheet, the app may offer what is on
+            your clipboard so you can save it in one tap. The clipboard is read at that moment to
+            show you the offer; it is not monitored in the background and its contents are not
+            stored or sent anywhere unless you choose to save them.
+          </li>
+          <li>
+            <strong>Quick actions.</strong> Long-pressing the app icon offers shortcuts to start a
+            new item. These are handled entirely by the operating system's launcher.
+          </li>
+          <li><strong>Typing.</strong> Directly, in the app.</li>
+        </ul>
+        <p>
+          The app has no access to your browsing history, your other apps' data, your contacts,
+          your photos, your location, your microphone or your camera — several of those are
+          explicitly blocked in the app's manifest (section 12).
+        </p>
+
+        <h2 id="en-7">7. Opening a saved link</h2>
+        <p>
+          Tapping a link opens it in an in-app browser tab, or in your default browser when that is
+          not available. From that point you are visiting the site normally: it sees your IP
+          address and whatever your browser sends it, exactly as it would if you had typed the
+          address. Khazna does not inject anything into the page, does not read its contents, and
+          does not track where you go next. It records one thing locally, on your device: that the
+          link has been opened, so it can stop showing as unread.
+        </p>
+
+        <h2 id="en-8">8. Reminders</h2>
+        <p>
+          You can ask an item to resurface at a chosen time. The reminder is scheduled with the
+          operating system's own alarm scheduler and fires on the device. No push service is
+          involved, no push token is requested, and the reminder's text — which may include your
+          item's title — never leaves the phone. Denying notification permission simply means
+          reminders are unavailable; nothing else in the app changes.
+        </p>
+
+        <h2 id="en-9">9. App lock and screen privacy</h2>
+        <p>
+          Two optional protections, both off by default and both entirely local.
+        </p>
+        <p>
+          <strong>App lock</strong> puts your device's own authentication — fingerprint, face, or
+          PIN and pattern — in front of the vault. The check is performed by the operating system;
+          the app is told only whether it passed. No biometric data is ever available to the app,
+          and no PIN or password of ours exists to be stored, guessed or reset. The app remembers a
+          single timestamp of when it was last backgrounded, so it can re-lock after the delay you
+          chose. A cold start always locks.
+        </p>
+        <p>
+          If the lock becomes impossible to satisfy — you removed your device screen lock after
+          enabling it, for instance — the app turns the setting off and lets you in rather than
+          leaving you shut out of your own notes. A vault its owner cannot open is a loss, not
+          security.
+        </p>
+        <p>
+          <strong>Screen privacy</strong> asks the operating system to block screenshots and screen
+          recording, and to hide the app's preview in the task switcher. On Android this is the
+          standard secure-window flag. The settings screen reports whether the block is actually in
+          force rather than merely what you asked for, because a privacy control that claims to be
+          on while it is not is worse than not having one.
+        </p>
+
+        <h2 id="en-10">10. Backup and restore</h2>
+        <p>
+          A backup is a plain JSON file containing your items, produced on demand and handed to
+          your device's share sheet. Where it goes is entirely your choice — a cloud drive, a chat
+          with yourself, a cable. It is not uploaded anywhere by the app, and no copy is kept by
+          us. The file is not encrypted, because it is yours to place somewhere you trust; treat it
+          as you would a document containing the same notes.
+        </p>
+        <p>
+          Restoring reads a file you pick and merges it into the vault. It never wipes what is
+          already there, and restoring the same file twice changes nothing. You can also copy a
+          backup to the clipboard and paste it back, which is useful for moving between two devices
+          with nothing in between.
+        </p>
+
+        <h2 id="en-11">11. App updates</h2>
+        <p>
+          Two update mechanisms exist, and neither is a request the app's own features make.
+        </p>
+        <ul>
+          <li>
+            <strong>The app store.</strong> Google Play or the App Store handles installation and
+            updates under its own privacy policy, as it does for every app on the device.
+          </li>
+          <li>
+            <strong>Over-the-air updates.</strong> The app can fetch a corrected JavaScript bundle
+            from Expo's update service (<code>u.expo.dev</code>) so a fix can ship without a store
+            release. That request carries the app's version and platform in order to receive the
+            right bundle. It carries nothing from your vault, and it is a platform mechanism rather
+            than a feature — it is listed here for completeness, not hidden behind the count of two
+            in section 4.
+          </li>
+        </ul>
+
+        <h2 id="en-12">12. Permissions</h2>
+        <p>
+          Khazna asks for very little, and explicitly blocks several permissions that its libraries
+          would otherwise be free to declare.
+        </p>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Permission</th>
+                <th>Why</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Internet and network state</td>
+                <td>The two requests in section 4, and app updates</td>
+              </tr>
+              <tr>
+                <td>Notifications</td>
+                <td>Requested only when you set your first reminder. Optional</td>
+              </tr>
+              <tr>
+                <td>Biometric authentication</td>
+                <td>Only when you turn app lock on. Optional</td>
+              </tr>
+              <tr>
+                <td>Vibrate</td>
+                <td>Haptic feedback on save and on ticking a checklist. Optional in Settings</td>
+              </tr>
+              <tr>
+                <td>Boot completed and wake lock</td>
+                <td>So a reminder scheduled before a restart still fires afterwards</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Explicitly blocked in the app's own configuration, so they cannot be present in a
+          released build: <span class="no">microphone</span>,
+          <span class="no">camera</span>, <span class="no">precise location</span>,
+          <span class="no">approximate location</span>,
+          <span class="no">physical activity recognition</span>,
+          <span class="no">reading images</span> and
+          <span class="no">reading video</span> from your library.
+        </p>
+        <p>
+          Also absent, because nothing in the app has any use for them: contacts, SMS, call logs,
+          the list of installed apps, and background location.
+        </p>
+
+        <h2 id="en-13">13. How your data is secured</h2>
+        <p>
+          Your vault sits in the app's private storage area, which Android and iOS keep isolated
+          from other applications. On a device with a screen lock, that storage is covered by the
+          operating system's own encryption at rest. App lock and screen privacy (section 9) add a
+          second layer if you want one.
+        </p>
+        <p>
+          The two outbound requests use HTTPS. Beyond that, the strongest security property here is
+          structural rather than technical: there is no server holding your items, so there is no
+          breach of ours that could expose them.
+        </p>
+        <p>
+          A caveat worth stating: a device with no screen lock, or one that has been rooted or
+          jailbroken, does not provide the isolation described above, and no app can restore it.
+        </p>
+
+        <h2 id="en-14">14. Retention and deletion</h2>
+        <p>
+          Your items are kept until you delete them. Deleting an item removes it; there is no
+          hidden trash, and no copy is retained anywhere else. Archiving keeps an item out of the
+          feed while leaving it searchable, and is not deletion.
+        </p>
+        <p>
+          <strong>To erase everything:</strong> uninstall the app, or clear its storage from your
+          device settings. Both remove the vault and every setting with it, immediately and
+          permanently. Export a backup first if you want to keep anything.
+        </p>
+        <p>
+          <strong>Usage measurements</strong> are held by PostHog for up to twelve months and then
+          expire. They are not tied to your identity, so there is nothing personal to delete — but
+          if you want the installation's measurement history removed anyway, email us from the
+          address in section 19 and it will be deleted. Turning the switch off stops any further
+          measurement immediately.
+        </p>
+
+        <h2 id="en-15">15. Your rights</h2>
+        <p>
+          Where the GDPR, the UK GDPR or a similar law applies, you have rights of access,
+          rectification, erasure, restriction, portability and objection. Their shape here is
+          unusual, because of how little exists:
+        </p>
+        <ul>
+          <li>
+            <strong>Access and portability</strong> are immediate and need no request: everything
+            we could possibly hold about your content is on your device, and the backup export
+            (section 10) is a machine-readable copy of all of it.
+          </li>
+          <li>
+            <strong>Erasure</strong> is uninstalling, plus an email if you also want the anonymous
+            measurements dropped.
+          </li>
+          <li>
+            <strong>Objection</strong> to the measurement is a switch in Settings, effective at
+            once, with no loss of any feature.
+          </li>
+        </ul>
+        <p>
+          We cannot identify you from anything we receive, so we cannot search for "your" data on
+          request — that is a consequence of collecting so little, not an evasion. You also have
+          the right to complain to your local data protection authority.
+        </p>
+
+        <h2 id="en-16">16. Children's privacy</h2>
+        <p>
+          Khazna is a general-purpose notebook and is not directed at children. It contains no ads,
+          no advertising identifiers, no in-app purchases and no social features, and it does not
+          knowingly collect information from anyone. If you believe a child's information has
+          somehow reached us, write to the address in section 19 and it will be removed.
+        </p>
+
+        <h2 id="en-17">17. Third-party services</h2>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Who</th>
+                <th>What they receive</th>
+                <th>When</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>The website of a link you saved</td>
+                <td>A page request from your IP address, like any browser visit</td>
+                <td>Only if title fetching is on, once per saved link</td>
+              </tr>
+              <tr>
+                <td>PostHog (EU region, <code>eu.i.posthog.com</code>)</td>
+                <td>
+                  Anonymous events as described in section 5: counts, durations, screen names,
+                  flags. No content, ever
+                </td>
+                <td>Only if usage measurement is on</td>
+              </tr>
+              <tr>
+                <td>Expo (<code>u.expo.dev</code>)</td>
+                <td>App version and platform, in order to serve the right update bundle</td>
+                <td>On launch, to check for an update</td>
+              </tr>
+              <tr>
+                <td>Google Play / Apple App Store</td>
+                <td>Whatever the store platform itself collects, under its own policy</td>
+                <td>Installation and updates</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          There are no advertising networks, no attribution or install-tracking SDKs, no social
+          logins, no crash reporter that captures screen contents, and no data broker relationship
+          of any kind. Nothing is sold or shared for advertising, and nothing about you is used to
+          train a model.
+        </p>
+
+        <h2 id="en-18">18. Changes to this policy</h2>
+        <p>
+          If the app starts doing something this page does not describe, this page is updated
+          first, in the same working session as the change — not afterwards. The date at the top
+          changes with it, and the full history of every edit is public in this repository's git
+          log. Material changes will also be noted in the app's release notes.
+        </p>
+
+        <h2 id="en-19">19. Contact</h2>
+        <div class="contact">
+          <p>
+            Any question about privacy, or to have this installation's measurement history deleted:
+            <a href="mailto:boogado@yahoo.com">boogado@yahoo.com</a>
+          </p>
+          <p>Developer: Mohamed Gado · App: Khazna (<code>com.khazna.vault</code>)</p>
+        </div>
+
+        <footer class="page">
+          <p>
+            This page is static and hosted on GitHub Pages. It sets no cookies, runs no analytics,
+            and loads no fonts or scripts from other servers.
+          </p>
+        </footer>
+      </section>
+
+      <!-- ================================ العربية ================================ -->
+      <section id="doc-ar" lang="ar" dir="rtl" class="lang-hidden">
+        <h1>سياسة الخصوصية لتطبيق خزنة</h1>
+        <p class="lede">
+          خزنة دفتر شخصي: روابط تريد العودة إليها، وملاحظات تدوّنها، وقوائم مهام تشطبها. لا حسابات
+          فيه ولا خادم لنا خلفه. تشرح هذه الصفحة ما يبقى على جهازك، والطلبَين الوحيدَين اللذَين
+          يخرجان منه، وكيف تُوقف كلًّا منهما.
+        </p>
+        <p class="meta">
+          آخر تحديث ٢٤ أغسطس ٢٠٢٦ · تغطي خزنة <code>0.1.0</code> وما بعدها ·
+          <code>com.khazna.vault</code>
+        </p>
+
+        <div class="cards">
+          <div class="card">
+            <h2>باختصار</h2>
+            <p>
+              كل ما تحفظه يعيش في مساحة التطبيق الخاصة على هاتفك. لا حساب تُنشئه، ولا خادم لنا
+              يتزامن معه، ولا سبيل لنا لقراءة ما في خزنتك.
+            </p>
+          </div>
+          <div class="card">
+            <h2>طلبان، وكلاهما اختياري</h2>
+            <p>
+              يجلب التطبيق عنوان صفحة لرابط حفظته بالفعل، ويرسل قياسات استخدام لا تحمل أي شيء من
+              محتوى خزنتك. لكلٍّ منهما مفتاح في الإعدادات.
+            </p>
+          </div>
+          <div class="card">
+            <h2>ما تكتبه لا يُرسَل أبدًا</h2>
+            <p>
+              العناوين والملاحظات والروابط وبنود القوائم ونص البحث لا يظهر أيٌّ منها في قياس — لا
+              مقتطعًا، ولا مشفّرًا، ولا «النطاق فقط».
+            </p>
+          </div>
+          <div class="card">
+            <h2>حذف التطبيق هو زر المحو</h2>
+            <p>
+              إزالة التطبيق تزيل الخزنة معه. لا توجد نسخة في مكان آخر تطلب منّا حذفها.
+            </p>
+          </div>
+        </div>
+
+        <nav class="toc" aria-label="المحتويات">
+          <h2>المحتويات</h2>
+          <ol>
+            <li><a href="#ar-1">من نحن ونطاق السياسة</a></li>
+            <li><a href="#ar-2">لا حسابات ولا خادم لنا</a></li>
+            <li><a href="#ar-3">ما يبقى على جهازك</a></li>
+            <li><a href="#ar-4">الطلبان اللذان يجريهما التطبيق</a></li>
+            <li><a href="#ar-5">قياس الاستخدام بالتفصيل</a></li>
+            <li><a href="#ar-6">كيف تدخل الأشياء إلى خزنة</a></li>
+            <li><a href="#ar-7">فتح رابط محفوظ</a></li>
+            <li><a href="#ar-8">التذكيرات</a></li>
+            <li><a href="#ar-9">قفل التطبيق وخصوصية الشاشة</a></li>
+            <li><a href="#ar-10">النسخ الاحتياطي والاستعادة</a></li>
+            <li><a href="#ar-11">تحديثات التطبيق</a></li>
+            <li><a href="#ar-12">الأذونات</a></li>
+            <li><a href="#ar-13">كيف تُؤمَّن بياناتك</a></li>
+            <li><a href="#ar-14">الاحتفاظ بالبيانات وحذفها</a></li>
+            <li><a href="#ar-15">حقوقك</a></li>
+            <li><a href="#ar-16">خصوصية الأطفال</a></li>
+            <li><a href="#ar-17">خدمات الغير</a></li>
+            <li><a href="#ar-18">تعديلات هذه السياسة</a></li>
+            <li><a href="#ar-19">التواصل</a></li>
+          </ol>
+        </nav>
+
+        <h2 id="ar-1">١. من نحن ونطاق السياسة</h2>
+        <p>
+          خزنة من تطوير ونشر محمد جادو، مطوّر فرد، ويمكن مراسلته على
+          <a href="mailto:boogado@yahoo.com">boogado@yahoo.com</a>. وبلغة قوانين حماية البيانات، هذا
+          الشخص هو المتحكّم في القدر اليسير من المعلومات الموصوف في القسم ٥. لا شركة، ولا فريق، ولا
+          طرف ثالث له صلاحية وصول.
+        </p>
+        <p>
+          تغطي هذه السياسة تطبيق خزنة للهواتف، المعرّف بـ <code>com.khazna.vault</code>، على أندرويد
+          و iOS. ولا تغطي المواقع التي تفتحها من داخله — فبمجرد أن تضغط رابطًا محفوظًا تكون في صفحة
+          شخص آخر وتحت سياسته، والقسم ٧ يوضّح بالضبط ما يفعله التطبيق وما لا يفعله في تلك اللحظة.
+        </p>
+
+        <h2 id="ar-2">٢. لا حسابات ولا خادم لنا</h2>
+        <p>
+          لا شيء تسجّل فيه. لا يوجد في خزنة تسجيل دخول، ولا ملف تعريف، ولا سحابة، ولا مزامنة، ولا
+          واجهة برمجية لنا في الصورة من الأساس. نحن لا نشغّل خادمًا تلمسه خزنتك، ومعنى ذلك أنه لا
+          توجد قاعدة بيانات بعناصرك، ولا نسخة من ملاحظاتك، ولا شيء نسلّمه أو نفقده أو نُلزَم
+          بإخراجه.
+        </p>
+        <p>
+          هذا قرار تصميمي له ثمن، ومن الأمانة قوله صراحة: لأنه لا يوجد خادم، لا توجد استعادة
+          تلقائية. إن فقدت الهاتف دون أن تكون قد صدّرت نسخة احتياطية (القسم ١٠) فقد ضاعت الخزنة.
+          ونرى أن هذه هي المقايضة الصحيحة لدفتر خاص.
+        </p>
+        <div class="note">
+          <p>
+            هناك طلبان يخرجان من الجهاز فعلًا، وليس أيٌّ منهما خادمًا لنا: جلب عنوان صفحة يذهب
+            مباشرة إلى الموقع الذي حفظته، وقياس استخدام مجهول يُرسل إلى PostHog. وكلاهما موصوف أدناه
+            وكلاهما يمكن إيقافه.
+          </p>
+        </div>
+
+        <h2 id="ar-3">٣. ما يبقى على جهازك</h2>
+        <p>
+          كل شيء. تحفظ خزنة بياناتها في مساحة التطبيق الخاصة، وهي مساحة يعزلها نظام التشغيل عن بقية
+          التطبيقات. ولا شيء في هذه القائمة يُرفَع إلى أي مكان.
+        </p>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>ماذا</th>
+                <th>يحتوي على</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>خزنتك</td>
+                <td>
+                  كل عنصر تحفظه: نوعه وعنوانه ورابطه ونص ملاحظته وبنود قائمته وحالة شطبها، ووسومه،
+                  وحالتَي التثبيت والأرشفة، ووقت الإنشاء وآخر تعديل، وما إذا كان الرابط قد فُتح
+                </td>
+              </tr>
+              <tr>
+                <td>الإعدادات</td>
+                <td>
+                  السمة واللغة والاهتزاز وترتيب العرض، وقفل التطبيق ومهلته، وخصوصية الشاشة، ومفتاحا
+                  الشبكة
+                </td>
+              </tr>
+              <tr>
+                <td>توقيت القفل</td>
+                <td>
+                  ختم زمني واحد يسجّل آخر مرة انتقل فيها التطبيق إلى الخلفية، ليعرف القفل هل يعيد
+                  التسلّح. ولا تُخزَّن أي بيانات اعتماد من أي نوع
+                </td>
+              </tr>
+              <tr>
+                <td>التذكيرات المجدولة</td>
+                <td>يحتفظ بها مجدول المنبّهات في نظام التشغيل، على الجهاز، مع النص الذي سيعرضه</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          لا توجد نسخة تحليلية من أيٍّ من ذلك، ولا تقرير أعطال يلتقط محتوى الشاشة، ولا سجل تشخيصي
+          يتضمن ما كتبته.
+        </p>
+
+        <h2 id="ar-4">٤. الطلبان اللذان يجريهما التطبيق</h2>
+        <p>
+          يفتح كود خزنة نوعين اثنين فقط من اتصالات الشبكة. وإضافة ثالث تستلزم تعديل هذه الصفحة أولًا،
+          وهي قاعدة يلزم بها المشروع نفسه.
+        </p>
+
+        <h3>الطلب الأول — عنوان رابط حفظته</h3>
+        <p>
+          حين تحفظ رابطًا دون أن تكتب له عنوانًا، يستطيع التطبيق جلب عنوان الصفحة نفسها ليصبح العنصر
+          مقروءًا لاحقًا بدل أن يكون رابطًا عاريًا. وهذا ما يعنيه ذلك بدقة:
+        </p>
+        <ul>
+          <li>
+            يحدث فقط لرابط <strong>محفوظ بالفعل</strong>، وفقط حين يكون العنصر على الشاشة أو حين
+            تطلبه أنت. لا شيء يُجلَب أثناء كتابتك، ولا شيء يُجلَب من حافظتك.
+          </li>
+          <li>
+            يذهب الطلب <strong>مباشرة إلى الموقع</strong>. لا يمرّ عبر خدمة لنا ولا لأحد غيرنا، ولا
+            مفتاح فيه ولا حساب. وبالنسبة لذلك الموقع يبدو الأمر زيارة — لأنه زيارة فعلًا.
+          </li>
+          <li>
+            يقرأ <strong>الوسوم فقط</strong>: أول ٦٤ كيلوبايت من الصفحة، ومنها يُؤخذ العنوان. لا
+            تُنزَّل صور ولا سكربتات ولا أنماط، ولا تُحفظ كوكيز.
+          </li>
+          <li>
+            يُحاوَل <strong>مرة واحدة لكل رابط</strong>. والصفحة التي لا عنوان لها لا تُسأل مرة
+            ثانية، والفشل صامت — يحتفظ الرابط بما كتبته أنت.
+          </li>
+          <li>
+            المفتاح: <em>الإعدادات ← الروابط ← جلب عناوين الصفحات</em>. وإيقافه يعني ألّا يُرسَل طلب
+            أبدًا.
+          </li>
+        </ul>
+        <p>
+          ونتيجة واحدة من الأمانة ذكرها: الموقع الذي حفظته يرى طلبًا من عنوان IP الخاص بك لحظة الحفظ
+          أو العرض، تمامًا كما لو فتحته في المتصفح. فإن كان ذلك مهمًّا لرابط بعينه، أوقف الإعداد قبل
+          حفظه.
+        </p>
+
+        <h3>الطلب الثاني — قياس الاستخدام</h3>
+        <p>
+          يرسل التطبيق قياسات مجهولة عن الاستخدام إلى PostHog، المستضاف في الاتحاد الأوروبي، لتكون
+          قرارات ما يُبنى مستندة إلى كيفية استعمال التطبيق فعليًا. ويصف القسم ٥ بالضبط ما يجوز أن
+          يحمله الحدث — وخلاصته: أعداد ومدد وأسماء شاشات وإشارات نعم/لا، ولا حرف واحد مما كتبته.
+        </p>
+        <p>المفتاح: <em>الإعدادات ← الخصوصية ← قياس الاستخدام</em>. وإيقافه يعني ألّا يُرسَل شيء.</p>
+
+        <h2 id="ar-5">٥. قياس الاستخدام بالتفصيل</h2>
+        <p>
+          معظم التطبيقات تَعِد بأن تحليلاتها «مجهولة» وتترك لك أن تصدّق. وهذه هي الآلية الفعلية،
+          لأنها قابلة للفحص لا مجرد وعد.
+        </p>
+        <p>
+          كل حدث يُسمح للتطبيق بإرساله معلَن في ملف واحد في الكود، ومعه الشكل الدقيق لما يحمله. والقيمة
+          في ذلك الملف يجوز أن تكون رقمًا، أو إشارة صح/خطأ، أو واحدة من قائمة ثابتة من الكلمات
+          اخترناها نحن (اسم شاشة مثل <code>feed</code>، أو نوع عنصر مثل <code>link</code>). ولا يجوز
+          أن تكون <strong>نصًّا حرًّا</strong>. والعنوان والرابط والملاحظة وبند القائمة وكلمة البحث
+          كلها نص حر، فلا يمكن وضع أيٍّ منها في حدث دون تغيير تلك القاعدة — واختبار آلي يرفض بناء
+          التطبيق إن تغيّرت.
+        </p>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>يُرسَل</th>
+                <th>لا يُرسَل أبدًا</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>أي شاشة فُتحت، باسمنا نحن لها</td>
+                <td>عنوان أي عنصر</td>
+              </tr>
+              <tr>
+                <td>أن عنصرًا أُنشئ، ومن أي نوع</td>
+                <td>أي رابط أو أي جزء منه، بما في ذلك النطاق</td>
+              </tr>
+              <tr>
+                <td>كم حرفًا كان فيه — العدد لا النص</td>
+                <td>نص أي ملاحظة</td>
+              </tr>
+              <tr>
+                <td>كم نتيجة أعاد البحث</td>
+                <td>عمّا بحثت</td>
+              </tr>
+              <tr>
+                <td>كم بندًا في القائمة وكم منها مشطوب</td>
+                <td>ما يقوله أي بند</td>
+              </tr>
+              <tr>
+                <td>هل نجح جلب العنوان وكم استغرق</td>
+                <td>أي صفحة جُلبت</td>
+              </tr>
+              <tr>
+                <td>هل نجح فتح القفل أم فشل أم أُلغي</td>
+                <td>أي شيء عن بصمتك أو وجهك أو رمزك</td>
+              </tr>
+              <tr>
+                <td>كم عنصرًا في الخزنة، مقرَّبًا إلى شريحة</td>
+                <td>أي شيء يعرّف بك شخصيًّا</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          الأعداد التي قد تنمو بلا حد تُقرَّب إلى شرائح قبل الإرسال، لأن «هذه الخزنة فيها ١٢٤٧ عنصرًا»
+          أقرب إلى بصمة، بينما «أكثر من ١٠٠٠» يجيب عن السؤال نفسه ولا يكون بصمة.
+        </p>
+        <p>
+          يمنح PostHog التثبيت معرّفًا عشوائيًّا حتى يمكن التعرّف على سلسلة أحداث كجلسة واحدة. وهو غير
+          مشتق من معرّف جهازك ولا رقم هاتفك ولا أي حساب، ولا يُشارَك مع أحد، وإعادة تثبيت التطبيق
+          تُنتج معرّفًا جديدًا. أما إعادة تشغيل الجلسة والالتقاط التلقائي — وهما ميزتا PostHog اللتان
+          تسجّلان الشاشة ونص ما يُضغط — فمعطّلتان في الكود بشكل دائم ولا تُعرضان كإعداد.
+        </p>
+        <p>
+          والأساس القانوني، حيث تنطبق اللائحة الأوروبية، هو المصلحة المشروعة في فهم كيفية استعمال
+          التطبيق، والقياس مفعّل افتراضيًّا. وإن كنت تفضّل ألّا تشارك فمفتاح واحد في الإعدادات ينهي
+          الأمر.
+        </p>
+
+        <h2 id="ar-6">٦. كيف تدخل الأشياء إلى خزنة</h2>
+        <p>أربع طرق للدخول، ولا واحدة منها تراقبك.</p>
+        <ul>
+          <li>
+            <strong>قائمة المشاركة.</strong> تقبل خزنة النصوص وروابط الويب المشارَكة من تطبيقات
+            أخرى. ولا تقبل عمدًا الصور ولا الملفات، فلا يصلها شيء من معرض صورك أو تخزينك. يستقبل
+            التطبيق ما شاركته، لحظة مشاركتك له، ولا شيء غير ذلك.
+          </li>
+          <li>
+            <strong>اللصق.</strong> عند فتح ورقة الالتقاط قد يعرض التطبيق ما في حافظتك لتحفظه بضغطة
+            واحدة. تُقرأ الحافظة في تلك اللحظة لعرض الاقتراح؛ ولا تُراقَب في الخلفية ولا يُخزَّن
+            محتواها ولا يُرسَل إلى أي مكان ما لم تختر أنت حفظه.
+          </li>
+          <li>
+            <strong>الإجراءات السريعة.</strong> الضغط المطوّل على أيقونة التطبيق يعرض اختصارات لبدء
+            عنصر جديد، ويتولّاها مشغّل نظام التشغيل بالكامل.
+          </li>
+          <li><strong>الكتابة.</strong> مباشرة، داخل التطبيق.</li>
+        </ul>
+        <p>
+          لا يملك التطبيق وصولًا إلى سجل تصفّحك، ولا بيانات تطبيقاتك الأخرى، ولا جهات اتصالك، ولا
+          صورك، ولا موقعك، ولا ميكروفونك، ولا كاميرتك — وعدد منها محظور صراحةً في إعداد التطبيق
+          (القسم ١٢).
+        </p>
+
+        <h2 id="ar-7">٧. فتح رابط محفوظ</h2>
+        <p>
+          الضغط على رابط يفتحه في تبويب متصفح داخل التطبيق، أو في متصفحك الافتراضي عند تعذّر ذلك.
+          ومن تلك اللحظة أنت تزور الموقع زيارة عادية: يرى عنوان IP الخاص بك وما يرسله متصفحك، تمامًا
+          كما لو كتبت العنوان بنفسك. لا تحقن خزنة شيئًا في الصفحة، ولا تقرأ محتواها، ولا تتعقّب إلى
+          أين تذهب بعدها. وتسجّل شيئًا واحدًا محليًّا على جهازك: أن الرابط فُتح، لتتوقف عن عرضه كغير
+          مقروء.
+        </p>
+
+        <h2 id="ar-8">٨. التذكيرات</h2>
+        <p>
+          يمكنك أن تطلب عودة عنصر إلى السطح في وقت تختاره. يُجدوَل التذكير عبر مجدول المنبّهات في
+          نظام التشغيل ويُطلَق على الجهاز. لا خدمة إشعارات دفع في الأمر، ولا رمز دفع يُطلب، ونص
+          التذكير — وقد يتضمن عنوان عنصرك — لا يغادر الهاتف أبدًا. ورفض إذن الإشعارات يعني ببساطة أن
+          التذكيرات غير متاحة؛ ولا يتغير شيء آخر في التطبيق.
+        </p>
+
+        <h2 id="ar-9">٩. قفل التطبيق وخصوصية الشاشة</h2>
+        <p>حمايتان اختياريتان، كلتاهما متوقفة افتراضيًّا وكلتاهما محلية بالكامل.</p>
+        <p>
+          <strong>قفل التطبيق</strong> يضع مصادقة جهازك نفسها — بصمة أو وجه أو رمز أو نقش — أمام
+          الخزنة. يجري الفحص في نظام التشغيل؛ ولا يُبلَّغ التطبيق إلا بنجاحه أو فشله. لا تتاح بيانات
+          حيوية للتطبيق مطلقًا، ولا يوجد رمز أو كلمة مرور خاصة بنا تُخزَّن أو تُخمَّن أو تُستعاد.
+          ويتذكّر التطبيق ختمًا زمنيًّا واحدًا لآخر انتقال إلى الخلفية، ليعيد القفل بعد المهلة التي
+          اخترتها. والبدء البارد يقفل دائمًا.
+        </p>
+        <p>
+          وإن صار القفل مستحيل الاستيفاء — كأن تكون قد أزلت قفل شاشة جهازك بعد تفعيله — يُطفئ التطبيق
+          الإعداد ويسمح لك بالدخول بدل أن يتركك محبوسًا خارج ملاحظاتك. فخزنة لا يستطيع صاحبها فتحها
+          خسارة لا أمان.
+        </p>
+        <p>
+          <strong>خصوصية الشاشة</strong> تطلب من نظام التشغيل منع لقطات الشاشة وتسجيلها، وإخفاء
+          معاينة التطبيق في مبدّل المهام. وعلى أندرويد هذه هي راية النافذة الآمنة المعتادة. وتذكر
+          شاشة الإعدادات هل المنع سارٍ فعلًا لا ما طلبته أنت فحسب، لأن أداة خصوصية تدّعي أنها مفعّلة
+          وهي ليست كذلك أسوأ من عدم وجودها.
+        </p>
+
+        <h2 id="ar-10">١٠. النسخ الاحتياطي والاستعادة</h2>
+        <p>
+          النسخة الاحتياطية ملف JSON عادي يحوي عناصرك، يُنتَج عند الطلب ويُسلَّم إلى قائمة المشاركة في
+          جهازك. وأين يذهب اختيارك أنت وحدك — سحابة، أو محادثة مع نفسك، أو كابل. لا يرفعه التطبيق إلى
+          أي مكان، ولا نحتفظ نحن بنسخة منه. والملف غير مشفّر، لأنه ملكك تضعه حيث تثق؛ فتعامل معه كما
+          تتعامل مع مستند يحوي الملاحظات نفسها.
+        </p>
+        <p>
+          والاستعادة تقرأ ملفًا تختاره وتدمجه في الخزنة. لا تمحو ما هو موجود أبدًا، واستعادة الملف
+          نفسه مرتين لا تغيّر شيئًا. ويمكنك أيضًا نسخ نسخة احتياطية إلى الحافظة ولصقها، وهو مفيد
+          للانتقال بين جهازين لا شيء بينهما.
+        </p>
+
+        <h2 id="ar-11">١١. تحديثات التطبيق</h2>
+        <p>آليتا تحديث موجودتان، وليست أيٌّ منهما طلبًا تجريه ميزات التطبيق نفسها.</p>
+        <ul>
+          <li>
+            <strong>متجر التطبيقات.</strong> يتولّى Google Play أو App Store التثبيت والتحديث وفق
+            سياسة خصوصيته هو، كما يفعل مع كل تطبيق على الجهاز.
+          </li>
+          <li>
+            <strong>التحديثات الفورية.</strong> يستطيع التطبيق جلب حزمة جافاسكربت مصحّحة من خدمة
+            التحديث لدى Expo (<code>u.expo.dev</code>) لتصل إصلاحة دون إصدار في المتجر. ويحمل ذلك
+            الطلب إصدار التطبيق ومنصّته ليتلقّى الحزمة الصحيحة. ولا يحمل شيئًا من خزنتك، وهو آلية
+            منصّة لا ميزة — ومذكور هنا لاكتمال الصورة، لا مخبّأً خلف عدد الطلبين في القسم ٤.
+          </li>
+        </ul>
+
+        <h2 id="ar-12">١٢. الأذونات</h2>
+        <p>
+          تطلب خزنة القليل جدًّا، وتحظر صراحةً عدة أذونات كان بوسع مكتباتها أن تعلنها لولا ذلك.
+        </p>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>الإذن</th>
+                <th>لماذا</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>الإنترنت وحالة الشبكة</td>
+                <td>الطلبان في القسم ٤، وتحديثات التطبيق</td>
+              </tr>
+              <tr>
+                <td>الإشعارات</td>
+                <td>يُطلب فقط عند ضبطك أول تذكير. اختياري</td>
+              </tr>
+              <tr>
+                <td>المصادقة الحيوية</td>
+                <td>فقط عند تفعيلك قفل التطبيق. اختياري</td>
+              </tr>
+              <tr>
+                <td>الاهتزاز</td>
+                <td>استجابة لمسية عند الحفظ وعند شطب بند. اختياري من الإعدادات</td>
+              </tr>
+              <tr>
+                <td>اكتمال الإقلاع وإبقاء الجهاز مستيقظًا</td>
+                <td>ليُطلَق تذكير جُدوِل قبل إعادة التشغيل بعدها</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          ومحظورة صراحةً في إعداد التطبيق نفسه فلا يمكن وجودها في إصدار منشور:
+          <span class="no">الميكروفون</span>، و<span class="no">الكاميرا</span>،
+          و<span class="no">الموقع الدقيق</span>، و<span class="no">الموقع التقريبي</span>،
+          و<span class="no">التعرّف على النشاط البدني</span>، و<span class="no">قراءة الصور</span>،
+          و<span class="no">قراءة الفيديو</span> من مكتبتك.
+        </p>
+        <p>
+          وغائبة أيضًا لأن لا حاجة لشيء في التطبيق بها: جهات الاتصال، والرسائل، وسجل المكالمات، وقائمة
+          التطبيقات المثبّتة، والموقع في الخلفية.
+        </p>
+
+        <h2 id="ar-13">١٣. كيف تُؤمَّن بياناتك</h2>
+        <p>
+          تجلس خزنتك في مساحة التطبيق الخاصة، وهي مساحة يبقيها أندرويد و iOS معزولة عن التطبيقات
+          الأخرى. وعلى جهاز له قفل شاشة، يغطّي تشفيرُ نظام التشغيل تلك المساحة في حالة السكون. ويضيف
+          قفل التطبيق وخصوصية الشاشة (القسم ٩) طبقة ثانية إن أردتها.
+        </p>
+        <p>
+          ويستخدم الطلبان الخارجان بروتوكول HTTPS. وما عدا ذلك، فأقوى خاصية أمنية هنا بنيوية لا
+          تقنية: لا يوجد خادم يحمل عناصرك، فلا يوجد اختراق لنا يمكن أن يكشفها.
+        </p>
+        <p>
+          وتنبيه يستحق الذكر: جهاز بلا قفل شاشة، أو جهاز جرى تجذيره أو كسر حمايته، لا يوفّر العزل
+          الموصوف أعلاه، ولا يستطيع أي تطبيق استعادته.
+        </p>
+
+        <h2 id="ar-14">١٤. الاحتفاظ بالبيانات وحذفها</h2>
+        <p>
+          تبقى عناصرك حتى تحذفها. وحذف عنصر يزيله؛ ولا توجد سلة مخفية، ولا نسخة محفوظة في مكان آخر.
+          والأرشفة تُبقي العنصر خارج القائمة مع بقائه قابلًا للبحث، وهي ليست حذفًا.
+        </p>
+        <p>
+          <strong>لمحو كل شيء:</strong> احذف التطبيق، أو امسح تخزينه من إعدادات جهازك. وكلاهما يزيل
+          الخزنة وكل إعداد معها، فورًا ونهائيًّا. صدّر نسخة احتياطية أولًا إن أردت الاحتفاظ بشيء.
+        </p>
+        <p>
+          <strong>قياسات الاستخدام</strong> يحتفظ بها PostHog حتى اثني عشر شهرًا ثم تنتهي. وهي غير
+          مرتبطة بهويتك فلا يوجد شخصي يُحذف — لكن إن أردت مع ذلك إزالة سجل قياسات هذا التثبيت، راسلنا
+          من العنوان في القسم ١٩ وسيُحذف. وإيقاف المفتاح يوقف أي قياس لاحق فورًا.
+        </p>
+
+        <h2 id="ar-15">١٥. حقوقك</h2>
+        <p>
+          حيث تنطبق اللائحة الأوروبية أو البريطانية أو قانون مشابه، لك حقوق الوصول والتصحيح والمحو
+          والتقييد والنقل والاعتراض. وشكلها هنا غير معتاد، لقلّة ما هو موجود أصلًا:
+        </p>
+        <ul>
+          <li>
+            <strong>الوصول والنقل</strong> فوريان ولا يحتاجان طلبًا: كل ما يمكن أن نحمله عن محتواك
+            موجود على جهازك، وتصدير النسخة الاحتياطية (القسم ١٠) نسخة منه كاملة بصيغة يقرأها الحاسوب.
+          </li>
+          <li>
+            <strong>المحو</strong> هو حذف التطبيق، مع رسالة بريد إن أردت أيضًا إسقاط القياسات
+            المجهولة.
+          </li>
+          <li>
+            <strong>الاعتراض</strong> على القياس مفتاح في الإعدادات، نافذ في الحال، دون فقدان أي
+            ميزة.
+          </li>
+        </ul>
+        <p>
+          ولا نستطيع التعرّف عليك من أي شيء يصلنا، فلا نستطيع البحث عن بياناتك «أنت» عند الطلب — وذلك
+          نتيجة لجمعنا القليل جدًّا لا تهرّبًا. ولك أيضًا حق الشكوى إلى هيئة حماية البيانات في بلدك.
+        </p>
+
+        <h2 id="ar-16">١٦. خصوصية الأطفال</h2>
+        <p>
+          خزنة دفتر عام الاستعمال وليست موجّهة للأطفال. لا إعلانات فيها، ولا معرّفات إعلانية، ولا
+          مشتريات داخلية، ولا ميزات اجتماعية، ولا تجمع معلومات من أحد عن علم. وإن كنت ترى أن معلومات
+          طفل قد وصلتنا بطريقة ما، فاكتب إلى العنوان في القسم ١٩ وستُزال.
+        </p>
+
+        <h2 id="ar-17">١٧. خدمات الغير</h2>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>من</th>
+                <th>ماذا يتلقّى</th>
+                <th>متى</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>موقع الرابط الذي حفظته</td>
+                <td>طلب صفحة من عنوان IP الخاص بك، كأي زيارة متصفح</td>
+                <td>فقط إن كان جلب العناوين مفعّلًا، ومرة واحدة لكل رابط محفوظ</td>
+              </tr>
+              <tr>
+                <td>PostHog (منطقة الاتحاد الأوروبي، <code>eu.i.posthog.com</code>)</td>
+                <td>أحداث مجهولة كما في القسم ٥: أعداد ومدد وأسماء شاشات وإشارات. ولا محتوى، أبدًا</td>
+                <td>فقط إن كان قياس الاستخدام مفعّلًا</td>
+              </tr>
+              <tr>
+                <td>Expo (<code>u.expo.dev</code>)</td>
+                <td>إصدار التطبيق ومنصّته، لتقديم حزمة التحديث الصحيحة</td>
+                <td>عند التشغيل، للتحقق من وجود تحديث</td>
+              </tr>
+              <tr>
+                <td>Google Play / Apple App Store</td>
+                <td>ما تجمعه منصّة المتجر نفسها، وفق سياستها هي</td>
+                <td>التثبيت والتحديثات</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          لا توجد شبكات إعلانية، ولا حزم تتبّع تنصيب أو إسناد، ولا تسجيل دخول عبر الشبكات
+          الاجتماعية، ولا مبلّغ أعطال يلتقط محتوى الشاشة، ولا أي علاقة بوسيط بيانات من أي نوع. ولا
+          يُباع شيء ولا يُشارَك لأغراض الإعلان، ولا يُستخدم شيء عنك في تدريب نموذج.
+        </p>
+
+        <h2 id="ar-18">١٨. تعديلات هذه السياسة</h2>
+        <p>
+          إن بدأ التطبيق يفعل شيئًا لا تصفه هذه الصفحة، فهذه الصفحة تُحدَّث أولًا، في جلسة العمل نفسها
+          التي يقع فيها التغيير لا بعدها. ويتغير التاريخ في الأعلى معها، وتاريخ كل تعديل كامل ومتاح
+          للعموم في سجل git لهذا المستودع. كما ستُذكر التغييرات الجوهرية في ملاحظات إصدار التطبيق.
+        </p>
+
+        <h2 id="ar-19">١٩. التواصل</h2>
+        <div class="contact">
+          <p>
+            لأي سؤال عن الخصوصية، أو لحذف سجل قياسات هذا التثبيت:
+            <a href="mailto:boogado@yahoo.com">boogado@yahoo.com</a>
+          </p>
+          <p>المطوّر: محمد جادو · التطبيق: خزنة (<code>com.khazna.vault</code>)</p>
+        </div>
+
+        <footer class="page">
+          <p>
+            هذه الصفحة ثابتة ومستضافة على GitHub Pages. لا تضع كوكيز، ولا تشغّل أي قياس، ولا تحمّل
+            خطوطًا أو سكربتات من خوادم أخرى.
+          </p>
+        </footer>
+      </section>
+    </main>
+
+    <script>
+      // Both languages ship in the DOM so crawlers and reader modes see the full policy.
+      // The toggle only flips visibility plus the document lang/dir.
+      (function () {
+        var docs = { en: document.getElementById("doc-en"), ar: document.getElementById("doc-ar") };
+        var btns = { en: document.getElementById("btn-en"), ar: document.getElementById("btn-ar") };
+        var root = document.documentElement;
+
+        function apply(lang, remember) {
+          var other = lang === "en" ? "ar" : "en";
+          docs[lang].classList.remove("lang-hidden");
+          docs[other].classList.add("lang-hidden");
+          btns[lang].setAttribute("aria-pressed", "true");
+          btns[other].setAttribute("aria-pressed", "false");
+          root.lang = lang;
+          root.dir = lang === "ar" ? "rtl" : "ltr";
+          if (remember) {
+            try {
+              localStorage.setItem("khazna-privacy-lang", lang);
+            } catch (e) {
+              // Private browsing can block storage. The toggle still works for this visit.
+            }
+          }
+        }
+
+        // A deep link to a section anchor wins over the stored choice, so a shared
+        // section link always lands on the section it names.
+        function langFromHash(hash) {
+          if (/^#ar-/.test(hash)) return "ar";
+          if (/^#en-/.test(hash)) return "en";
+          return null;
+        }
+
+        function storedLang() {
+          try {
+            return localStorage.getItem("khazna-privacy-lang");
+          } catch (e) {
+            return null; // private browsing can block storage
+          }
+        }
+
+        function browserLang() {
+          var tag = (navigator.language || "en").toLowerCase();
+          return tag.indexOf("ar") === 0 ? "ar" : "en";
+        }
+
+        apply(langFromHash(location.hash) || storedLang() || browserLang(), false);
+
+        btns.en.addEventListener("click", function () {
+          apply("en", true);
+        });
+        btns.ar.addEventListener("click", function () {
+          apply("ar", true);
+        });
+      })();
+    </script>
+  </body>
+</html>
