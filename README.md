@@ -1,11 +1,11 @@
 # khazna-privacy
 
 The published privacy policy for **Khazna (خزنة)**, a pocket vault for links, notes and
-checklists (`com.khazna.vault`).
+checklists (`com.mohamedgado.khazna`).
 
 - **Live policy:** https://vette1123.github.io/khazna-privacy/
-- **App on Google Play:** not listed yet — this URL goes in the listing and the Data
-  safety form when it is
+- **App on Google Play:** in closed testing under `com.mohamedgado.khazna` — this URL is
+  what the listing and the Data safety form point at
 
 The URL is referenced from inside the app (`Settings → Privacy policy`) and from the store
 listing, so it must always resolve.
