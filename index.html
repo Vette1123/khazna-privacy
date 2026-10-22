@@ -477,7 +477,7 @@
           both of them off.
         </p>
         <p class="meta">
-          Last updated 22 October 2026 · Covers Khazna <code>0.3.0</code> and later ·
+          Last updated 22 October 2026 · Covers Khazna <code>0.4.0</code> and later ·
           <code>com.mohamedgado.khazna</code>
         </p>
 
@@ -617,6 +617,14 @@
                   text it will display
                 </td>
               </tr>
+              <tr>
+                <td>The home-screen widget</td>
+                <td>
+                  Up to three of your most recent items, by title, on your own home screen. While
+                  app lock is on and the vault is locked, the widget draws nothing at all: the
+                  launcher cannot be asked whether you are locked, so it is told what it may show
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -624,11 +632,22 @@
           There is no analytics copy of any of this, no crash report that captures screen contents,
           and no diagnostic log that includes what you wrote.
         </p>
+        <p>
+          Android's own automatic backup is switched off for Khazna. The platform's backup service
+          is not allowed to copy the app's files, so the vault is not carried off the device into a
+          Google account backup behind your back. The only copy that ever leaves is one you make
+          yourself, and you make it (section 10).
+        </p>
 
         <h2 id="en-4">4. The two requests the app makes</h2>
         <p>
           Khazna's own code opens exactly two kinds of network connection. Adding a third would
           require changing this page first, which is a rule the project holds itself to.
+        </p>
+        <p>
+          The second of them — the usage measurement in section 5 — happens only in a build that
+          is configured to measure. A build that is not sends nothing at all, so on some copies of
+          the app only the first request ever leaves the device.
         </p>
 
         <h3>Request 1 — the title of a link you saved</h3>
@@ -842,7 +861,7 @@
 
         <h2 id="en-11">11. App updates</h2>
         <p>
-          Two update mechanisms exist, and neither is a request the app's own features make.
+          One update mechanism exists, and it is not a request the app's own features make.
         </p>
         <ul>
           <li>
@@ -853,20 +872,20 @@
             Play Store app already installed on the phone, carries nothing from your vault, and has
             no setting because it is Play's mechanism rather than ours.
           </li>
-          <li>
-            <strong>Over-the-air updates.</strong> The app can fetch a corrected JavaScript bundle
-            from Expo's update service (<code>u.expo.dev</code>) so a fix can ship without a store
-            release. That request carries the app's version and platform in order to receive the
-            right bundle. It carries nothing from your vault, and it is a platform mechanism rather
-            than a feature — it is listed here for completeness, not hidden behind the count of two
-            in section 4.
-          </li>
         </ul>
+        <p>
+          The app you have is a fixed build. It arrives as one binary from the store, and it fetches
+          no replacement JavaScript bundle from anywhere — not from Expo's update service, not from
+          anywhere else. Nothing we run on a server can change what the installed app does, which
+          is exactly why the update question above is asked of the store rather than of us: a fix
+          arrives as a new build, and the app asks the store on your device whether one is live.
+        </p>
 
         <h2 id="en-12">12. Permissions</h2>
         <p>
           Khazna asks for very little, and explicitly blocks several permissions that its libraries
-          would otherwise be free to declare.
+          would otherwise be free to declare. This is the complete list of what the released
+          Android build holds.
         </p>
         <div class="table-scroll">
           <table>
@@ -879,7 +898,7 @@
             <tbody>
               <tr>
                 <td>Internet and network state</td>
-                <td>The two requests in section 4, and app updates</td>
+                <td>The two requests in section 4</td>
               </tr>
               <tr>
                 <td>Notifications</td>
@@ -897,6 +916,22 @@
                 <td>Boot completed and wake lock</td>
                 <td>So a reminder scheduled before a restart still fires afterwards</td>
               </tr>
+              <tr>
+                <td>Screen capture detection (Android 14 and later)</td>
+                <td>
+                  The screen-privacy feature registers an observer with the operating system, which
+                  is what lets it tell you whether the block is actually in force rather than merely
+                  what you asked for. Android does not grant that observer to an app that does not
+                  hold this permission
+                </td>
+              </tr>
+              <tr>
+                <td>Install launcher shortcuts</td>
+                <td>
+                  Khazna publishes its own long-press actions on your home screen: capture, paste
+                  and save, and the share target. No prompt, and nothing outside your own launcher
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -907,11 +942,17 @@
           <span class="no">approximate location</span>,
           <span class="no">physical activity recognition</span>,
           <span class="no">reading images</span> and
-          <span class="no">reading video</span> from your library.
+          <span class="no">reading video</span> from your library, and the badge permissions a
+          notification library would otherwise use to put a number on your icon.
         </p>
         <p>
           Also absent, because nothing in the app has any use for them: contacts, SMS, call logs,
           the list of installed apps, and background location.
+        </p>
+        <p>
+          The build also holds one permission of its own: a signature-level permission that lets
+          only Khazna's own components receive its broadcasts. It grants nothing to any other app
+          and asks you for nothing.
         </p>
 
         <h2 id="en-13">13. How your data is secured</h2>
@@ -1010,11 +1051,6 @@
                 <td>Only if usage measurement is on</td>
               </tr>
               <tr>
-                <td>Expo (<code>u.expo.dev</code>)</td>
-                <td>App version and platform, in order to serve the right update bundle</td>
-                <td>On launch, to check for an update</td>
-              </tr>
-              <tr>
                 <td>Google Play / Apple App Store</td>
                 <td>Whatever the store platform itself collects, under its own policy</td>
                 <td>Installation and updates</td>
@@ -1063,7 +1099,7 @@
           يخرجان منه، وكيف تُوقف كلًّا منهما.
         </p>
         <p class="meta">
-          آخر تحديث ٢٢ أكتوبر ٢٠٢٦ · تغطي خزنة <code>0.3.0</code> وما بعدها ·
+          آخر تحديث ٢٢ أكتوبر ٢٠٢٦ · تغطي خزنة <code>0.4.0</code> وما بعدها ·
           <code>com.mohamedgado.khazna</code>
         </p>
 
@@ -1194,6 +1230,14 @@
                 <td>التذكيرات المجدولة</td>
                 <td>يحتفظ بها مجدول المنبّهات في نظام التشغيل، على الجهاز، مع النص الذي سيعرضه</td>
               </tr>
+              <tr>
+                <td>أداة الشاشة الرئيسية</td>
+                <td>
+                  حتى ثلاثة من أحدث عناصرك، بعناوينها، على شاشتك الرئيسية. وحين يكون قفل التطبيق
+                  مفعّلًا والخزنة مقفلة، لا تعرض الأداة شيئًا البتّة: فالمشغّل لا يسأل خزنة إن كنت
+                  مقفلًا، بل يُقال له ما يجوز له عرضه
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -1201,11 +1245,20 @@
           لا توجد نسخة تحليلية من أيٍّ من ذلك، ولا تقرير أعطال يلتقط محتوى الشاشة، ولا سجل تشخيصي
           يتضمن ما كتبته.
         </p>
+        <p>
+          النسخ الاحتياطي التلقائي في أندرويد معطّل في خزنة. فخدمة النسخ في المنصّة غير مسموح لها
+          بنسخ ملفات التطبيق، فلا تُنقل الخزنة خلف ظهرك إلى نسخة احتياطية في حساب Google. النسخة
+          الوحيدة التي تغادر الجهاز هي نسخة تصنعها أنت بنفسك (القسم ١٠).
+        </p>
 
         <h2 id="ar-4">٤. الطلبان اللذان يجريهما التطبيق</h2>
         <p>
           يفتح كود خزنة نوعين اثنين فقط من اتصالات الشبكة. وإضافة ثالث تستلزم تعديل هذه الصفحة أولًا،
           وهي قاعدة يلزم بها المشروع نفسه.
+        </p>
+        <p>
+          أما الثاني منهما — قياس الاستخدام في القسم ٥ — فلا يجري إلا في نسخة مُهيّأة للقياس. والنسخة
+          غير المهيّأة لا ترسل شيئًا البتّة، فعلى بعض نسخ التطبيق لا يغادر الجهاز إلا الطلب الأول.
         </p>
 
         <h3>الطلب الأول — عنوان رابط حفظته</h3>
@@ -1399,7 +1452,7 @@
         </p>
 
         <h2 id="ar-11">١١. تحديثات التطبيق</h2>
-        <p>آليتا تحديث موجودتان، وليست أيٌّ منهما طلبًا تجريه ميزات التطبيق نفسها.</p>
+        <p>آلية تحديث واحدة موجودة، وليست طلبًا تجريه ميزات التطبيق نفسها.</p>
         <ul>
           <li>
             <strong>متجر التطبيقات.</strong> يتولّى Google Play أو App Store التثبيت والتحديث وفق
@@ -1408,17 +1461,18 @@
             التحديث الخاصة به. وهذا السؤال يذهب إلى تطبيق Play المثبَّت على الهاتف، ولا يحمل شيئًا
             من خزنتك، وليس له إعداد لأنه آلية Play لا آليتنا.
           </li>
-          <li>
-            <strong>التحديثات الفورية.</strong> يستطيع التطبيق جلب حزمة جافاسكربت مصحّحة من خدمة
-            التحديث لدى Expo (<code>u.expo.dev</code>) لتصل إصلاحة دون إصدار في المتجر. ويحمل ذلك
-            الطلب إصدار التطبيق ومنصّته ليتلقّى الحزمة الصحيحة. ولا يحمل شيئًا من خزنتك، وهو آلية
-            منصّة لا ميزة — ومذكور هنا لاكتمال الصورة، لا مخبّأً خلف عدد الطلبين في القسم ٤.
-          </li>
         </ul>
+        <p>
+          التطبيق الذي لديك بنية ثابتة: يصل من المتجر كنسخة واحدة، ولا يجلب أي حزمة جافاسكربت
+          بديلة من أي مكان، ولا من خدمة التحديث لدى Expo. فلا شيء نشغّله على خادم يغيّر ما يفعله
+          التطبيق المثبَّت، وهذا بالضبط لماذا يُسأل سؤال التحديث أعلاه المتجرَ لا نحن: فالإصلاح
+          يصل كإصدار جديد، والتطبيق يسأل المتجر على جهازك إن كان ثمّة إصدار حيّ.
+        </p>
 
         <h2 id="ar-12">١٢. الأذونات</h2>
         <p>
           تطلب خزنة القليل جدًّا، وتحظر صراحةً عدة أذونات كان بوسع مكتباتها أن تعلنها لولا ذلك.
+          وهذه هي القائمة الكاملة لما تحمله نسخة أندرويد المنشورة.
         </p>
         <div class="table-scroll">
           <table>
@@ -1431,7 +1485,7 @@
             <tbody>
               <tr>
                 <td>الإنترنت وحالة الشبكة</td>
-                <td>الطلبان في القسم ٤، وتحديثات التطبيق</td>
+                <td>الطلبان في القسم ٤</td>
               </tr>
               <tr>
                 <td>الإشعارات</td>
@@ -1449,6 +1503,21 @@
                 <td>اكتمال الإقلاع وإبقاء الجهاز مستيقظًا</td>
                 <td>ليُطلَق تذكير جُدوِل قبل إعادة التشغيل بعدها</td>
               </tr>
+              <tr>
+                <td>كشف التقاط الشاشة (أندرويد ١٤ فما بعد)</td>
+                <td>
+                  تسجّل ميزة خصوصية الشاشة مراقبًا مع نظام التشغيل، وهو ما يتيح لها أن تقول لك إن
+                  كان الحظر ساريًا فعلًا لا ما طلبته فحسب. ولا يمنح أندرويد ذلك المراقب لتطبيق
+                  لا يحمل هذا الإذن
+                </td>
+              </tr>
+              <tr>
+                <td>تثبيت اختصارات المشغّل</td>
+                <td>
+                  تنشر خزنة اختصاراتها الخاصة بالضغط المطوّل على شاشتك الرئيسية: عنصر جديد، ولصق
+                  وحفظ، وهدف المشاركة. بلا أي طلب، وبلا شيء خارج مشغّلك أنت
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -1457,11 +1526,16 @@
           <span class="no">الميكروفون</span>، و<span class="no">الكاميرا</span>،
           و<span class="no">الموقع الدقيق</span>، و<span class="no">الموقع التقريبي</span>،
           و<span class="no">التعرّف على النشاط البدني</span>، و<span class="no">قراءة الصور</span>،
-          و<span class="no">قراءة الفيديو</span> من مكتبتك.
+          و<span class="no">قراءة الفيديو</span> من مكتبتك، وأذونات الشارات التي تستخدمها مكتبة
+          إشعارات لوضع رقم على أيقونتك.
         </p>
         <p>
           وغائبة أيضًا لأن لا حاجة لشيء في التطبيق بها: جهات الاتصال، والرسائل، وسجل المكالمات، وقائمة
           التطبيقات المثبّتة، والموقع في الخلفية.
+        </p>
+        <p>
+          وتحمل النسخة أيضًا إذنًا واحدًا خاصًّا بها: إذنٌ بمستوى التوقيع يسمح لمكوّنات خزنة وحدها
+          باستقبال إشعاراتها. وهو لا يمنح أي تطبيق آخر شيئًا، ولا يطلب منك شيئًا.
         </p>
 
         <h2 id="ar-13">١٣. كيف تُؤمَّن بياناتك</h2>
@@ -1545,11 +1619,6 @@
                 <td>PostHog (منطقة الاتحاد الأوروبي، <code>eu.i.posthog.com</code>)</td>
                 <td>أحداث مجهولة كما في القسم ٥: أعداد ومدد وأسماء شاشات وإشارات. ولا محتوى، أبدًا</td>
                 <td>فقط إن كان قياس الاستخدام مفعّلًا</td>
-              </tr>
-              <tr>
-                <td>Expo (<code>u.expo.dev</code>)</td>
-                <td>إصدار التطبيق ومنصّته، لتقديم حزمة التحديث الصحيحة</td>
-                <td>عند التشغيل، للتحقق من وجود تحديث</td>
               </tr>
               <tr>
                 <td>Google Play / Apple App Store</td>

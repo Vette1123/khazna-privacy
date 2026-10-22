@@ -70,10 +70,15 @@ contact.
 |---|---|---|
 | The site of a link the user saved | Read its `<title>` so the item is readable | Yes — Settings → Links |
 | `eu.i.posthog.com` | Anonymous usage measurement, EU region | Yes — Settings → Privacy |
-| `u.expo.dev` | Over-the-air JS updates (platform, not a feature) | No |
 | `play.google.com` / App Store | Installation and updates, under their own policies | No |
 
 There is no server of ours anywhere in that table, and that is the point of it.
+
+`u.expo.dev` was in that table until 22 October 2026 and is not any more: the shipped build
+has `expo.modules.updates.ENABLED=false` and no update URL, so the app never asks Expo's
+update service for anything. The app ships as a fixed binary from the store. If that ever
+changes, section 11 and the table above change in the same commit — the same week, not the
+same year.
 
 ### The claim the app makes about analytics, and why it is checkable
 
@@ -88,11 +93,26 @@ If that ever stops being true, section 5 is wrong and has to change in the same 
 
 ### Permissions disclosed
 
-Section 12 lists internet and network state, notifications (asked only at the first
-reminder), biometric authentication (only with app lock on), vibrate, and boot-completed
-plus wake lock so a reminder survives a restart. It also states what is explicitly blocked
-in `app.json` and therefore cannot be in a released build: microphone, camera, fine and
-coarse location, activity recognition, and reading images or video from the library.
+Section 12 lists the complete set the released Android build holds: internet and network
+state, notifications (asked only at the first reminder), biometric authentication (only
+with app lock on), vibrate, boot-completed plus wake lock so a reminder survives a
+restart, screen-capture detection on Android 14 and later (the screen-privacy feature
+registers an observer with the operating system, and Android grants no observer to an app
+without the permission), and install launcher shortcuts. It also states what is explicitly
+blocked in `app.json` and therefore cannot be in a released build: microphone, camera,
+fine and coarse location, activity recognition, reading images or video from the library,
+and the badge permissions a notification library would use to put a number on your icon.
+
+The app repo asserts that set at build time: `scripts/build-release-aab.ps1` fails the
+build if the merged manifest holds any permission outside the list, so a permission added
+by a library cannot reach a release without section 12 changing with it.
+
+### The widget, and the lock
+
+Section 3 says the home-screen widget shows up to three recent items by title, and draws
+nothing while the vault is locked. The launcher cannot ask whether the vault is locked — it
+is another process — so the app hands it nothing to draw instead. That is checked in the
+app repo by `__tests__/widget.test.ts`.
 
 ## Maintaining it
 
@@ -118,10 +138,26 @@ so this page wins and the app changes.
 - Privacy policy URL: `https://vette1123.github.io/khazna-privacy/`
 - Data deletion URL: not applicable, no accounts
 
-Data Safety should declare: app activity and diagnostics collected for analytics, tied to
-a random per-install id, not linked to identity, and with an in-app opt-out; no data
-shared with third parties; no data collected from the vault itself. All traffic is over
-TLS.
+### Data safety
+
+The form has to answer for the binary that is actually on the store, and one thing about
+that binary is decided at build time rather than in the source: `EXPO_PUBLIC_POSTHOG_KEY`
+is injected into the build and is **not** in the repo. Without it, the app never
+constructs an analytics client and collects nothing at all.
+
+The app repo's release build prints which of the two it is, so the answer is never a
+guess:
+
+- **Build without the key → "Does your app collect or share any of the required user
+  data types?" → NO.** Nothing is collected, nothing is shared, and the encryption and
+  deletion questions are not applicable. The vault is on-device; Settings → Erase removes
+  it.
+- **Build with the key → YES**, and declare exactly this and nothing more: app activity
+  and diagnostics collected for analytics, tied to a random per-install id, not linked to
+  identity, not shared with third parties, encrypted in transit, and removable by
+  switching analytics off. No data is collected from the vault itself.
+
+All traffic is over TLS either way.
 
 ## Contact
 
