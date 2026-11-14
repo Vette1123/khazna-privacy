@@ -161,4 +161,4 @@ All traffic is over TLS either way.
 
 ## Contact
 
-boogado@yahoo.com
+booogado@gmail.com
